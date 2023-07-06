@@ -1,0 +1,36 @@
+{
+  "name": "placement-cell-nodejs-codingninjas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js",
+    "build": "babel src --out-dir dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KUSHAL-JAIN-au9/placement-cell-nodejs-codingninjas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KUSHAL-JAIN-au9/placement-cell-nodejs-codingninjas/issues"
+  },
+  "homepage": "https://github.com/KUSHAL-JAIN-au9/placement-cell-nodejs-codingninjas#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "fast-csv": "^4.3.6",
+    "inquirer": "^9.2.7",
+    "mongoose": "^7.3.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "uuid": "^9.0.0"
+  }
+}
