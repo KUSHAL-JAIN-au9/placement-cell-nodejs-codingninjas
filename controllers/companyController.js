@@ -1,5 +1,3 @@
-// const Student = require("../models/studentSchema");
-// const Company = require("../models/companySchema");
 import Company from "../models/companySchema.js";
 import Student from "../models/studentSchema.js";
 

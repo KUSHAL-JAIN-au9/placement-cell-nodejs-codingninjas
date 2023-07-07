@@ -1,8 +1,3 @@
-// const User = require("../models/userSchema");
-// const Student = require("../models/studentSchema");
-// const fs = require("fs");
-// const fastcsv = require("fast-csv");
-
 import User from "../models/userSchema.js";
 import Student from "../models/studentSchema.js";
 import fs from "fs";
@@ -135,14 +130,3 @@ export const downloadCsv = async (req, res) => {
     return res.redirect("back");
   }
 };
-
-// const userController = {
-//   signup,
-//   signin,
-//   createUser,
-//   downloadCsv,
-//   signout,
-//   createSession,
-// };
-
-// export default userController;

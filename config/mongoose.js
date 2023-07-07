@@ -1,26 +1,12 @@
-// const mongoose = require("mongoose");
 import mongoose from "mongoose";
 // mongoose.set('strictQuery',true);
-// const dotenv = require('.env');
-const DB =
-  "mongodb+srv://kushal313:9632@cluster0.pyhoisp.mongodb.net/placementcell?retryWrites=true&w=majority";
-// "mongodb+srv://kushal313:9632@cluster0.pyhoisp.mongodb.net/placementcell";
-// dotenv.config({ path: 'config/.env' });
+import dotenv from "dotenv";
 
-//connecting mongoose with database
-//I stored MONGODB_URI in my system veriable for security reason. veriable name MONGODB_URI followed by your mongo atlas link
-//for local use you can write this code
-// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/csvUploader');
+dotenv.config();
+const DB = process.env.MONGO_URI;
+// "mongodb+srv://kushal313:9632@cluster0.pyhoisp.mongodb.net/placementcell?retryWrites=true&w=majority";
 
-// mongoose.connect(DB, {
-// 	useNewUrlParser: true,
-// 	useCreateIndex:true,
-//  	useUnifiedTopology: true,
-// 	useFindAndModify:false
-// }).then(() => {
-// 	console.log('connection successful');
-// }).catch((err) => console.log('no connection',err));
-
+console.log(process.env.PORT);
 mongoose.connect(DB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -28,10 +14,6 @@ mongoose.connect(DB, {
 
 const db = mongoose.connection;
 
-db.on("error", console.error.bind(console, "Error in connecting to MongoDB"));
 
-db.once("open", function () {
-  console.log("Connected to Database :: Mongodb Kushal");
-});
 
-export default mongoose;
+export default db;

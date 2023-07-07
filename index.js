@@ -6,30 +6,27 @@ import passport from "passport";
 import passportLocal from "./config/passport-local-startegy.js";
 import routes from "./routes/index.js";
 import ejs from "ejs";
-import { homePage } from "./controllers/homeController.js";
-import userRoutes from "./routes/userRoutes.js";
-import studentRoutes from "./routes/studentRoute.js";
-import companyRoutes from "./routes/companyRoute.js";
 
-// const dotenv = require('dotenv');
-// const db = require('./config/mongoose');
-// const session = require('express-session');
-// const passport = require('passport');
-// const passportLocal = require('./config/passport-local-startegy');
+dotenv.config();
+db.on("error", console.error.bind(console, "Error in connecting to MongoDB"));
+
+db.once("open", function () {
+  console.log("Connected to Database :: Mongodb Kushal");
+});
 const app = express();
 const router = express.Router();
 const port = process.env.PORT || 8000;
 
 // Define routes and middleware
 
-// dotenv.config({ path: "config/.env" });
+console.log(process.env.SECRET);
 app.set("view engine", "ejs");
 app.engine("ejs", ejs.renderFile);
 app.set("views", "./views");
 app.use(
   session({
     //change the secrate before deployment in production mode
-    secret: "hello", // SECRET is stored in the system veriable
+    secret: process.env.SECRET, // SECRET is stored in the system veriable
     //if the session data is alredy stored we dont need to rewrite it again and again so this is set to false
     resave: false,
     //when the user is not logged in or identity is not establish in that case we dont need to save extra data in
@@ -53,17 +50,6 @@ app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 
 // express router
-// app.get("/", (req, res) => {
-//   // Render the 'index.ejs' template
-//   res.render("home", { title: "EJS Example", message: "Hello, EJS!" });
-// });
-
-// router.get("/", passport.checkAuthentication, homePage);
-// router.use("/users", userRoutes);
-// router.use("/students", studentRoutes);
-// router.use("/company", companyRoutes);
-
-// console.log(userRoutes);
 app.use("/", routes);
 
 app.listen(port, (err) => {

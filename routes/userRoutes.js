@@ -1,14 +1,8 @@
-// const express = require('express');
-// const passport = require('passport');
-
-// const router = express.Router();
-
 import express from "express";
 import passport from "passport";
 
 const router = express.Router();
 
-// const userController = require("../controllers/userControllers");
 import {
   createSession,
   createUser,

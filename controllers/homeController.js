@@ -1,4 +1,3 @@
-// const Student = require("../models/studentSchema");
 import Student from "../models/studentSchema.js";
 
 // render home page

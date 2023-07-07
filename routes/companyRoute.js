@@ -1,8 +1,3 @@
-// const express = require('express');
-// const passport = require('passport');
-// const companyController = require('../controllers/companyController');
-// const router = express.Router();
-
 import express from "express";
 import passport from "passport";
 import {
